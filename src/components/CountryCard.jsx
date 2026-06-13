@@ -1,34 +1,20 @@
-function CountryCard({ country, onSelect }) {
-    
-  const name = country["names.common"] ?? "Sin nombre";
-  const flag = country["flags.svg"] ?? country["flags.png"] ?? "";
-  const capital = country["capitals"]?.[0] ?? "N/A";
-  const population = country.population?.toLocaleString("es-ES") ?? "N/A";
-  const region = country.region ?? "N/A";
+export default function CountryCard({ country, onClick }) {
+  const { name, capital, population, region, flags } = country;
 
   return (
-    <div className="country-card" onClick={() => onSelect(country)}>
-      <div className="card-flag-wrapper">
-        {flag ? (
-          <img src={flag} alt={`Bandera de ${name}`} className="card-flag" />
-        ) : (
-          <div className="card-flag-placeholder">🏳️</div>
-        )}
+    <div className="country-card" onClick={() => onClick(country)}>
+      <div className="card-flag">
+        {flags.png
+          ? <img src={flags.png} alt={`Bandera de ${name.common}`} />
+          : <div className="flag-placeholder">🏳️</div>
+        }
       </div>
       <div className="card-body">
-        <h3 className="card-name">{name}</h3>
-        <p className="card-info">
-          <span className="card-label">Capital:</span> {capital}
-        </p>
-        <p className="card-info">
-          <span className="card-label">Población:</span> {population}
-        </p>
-        <p className="card-info">
-          <span className="card-label">Región:</span> {region}
-        </p>
+        <h2 className="card-name">{name.common}</h2>
+        <p><span>Población:</span> {population.toLocaleString()}</p>
+        <p><span>Región:</span> {region || "N/A"}</p>
+        <p><span>Capital:</span> {capital?.[0] ?? "N/A"}</p>
       </div>
     </div>
   );
 }
-
-export default CountryCard;
