@@ -87,7 +87,7 @@ La aplicación estará disponible en `http://localhost:5173`.
 
 ### Filtro por región
 
-![Filtro por región](screenshots/Fa%20filtro%20por%20region.png)
+![Filtro por región](screenshots/%20filtro%20por%20region.png)
 
 ---
 
