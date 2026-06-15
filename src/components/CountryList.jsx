@@ -1,10 +1,10 @@
 import CountryCard from "./CountryCard";
 
-function CountryList({ countries, onSelect }) {
+export default function CountryList({ countries, onSelect, isFavorite, onToggleFavorite }) {
   if (countries.length === 0) {
     return (
       <div className="empty-state">
-        <p className="empty-icon">🔍</p>
+        <div className="empty-icon">🔍</div>
         <p className="empty-text">No se encontraron países con ese filtro.</p>
       </div>
     );
@@ -14,13 +14,13 @@ function CountryList({ countries, onSelect }) {
     <div className="country-grid">
       {countries.map((country) => (
         <CountryCard
-          key={country["codes.alpha_3"] ?? country["names.common"]}
+          key={country.uuid}
           country={country}
-          onSelect={onSelect}
+          onClick={onSelect}
+          isFavorite={isFavorite(country)}
+          onToggleFavorite={onToggleFavorite}
         />
       ))}
     </div>
   );
 }
-
-export default CountryList;

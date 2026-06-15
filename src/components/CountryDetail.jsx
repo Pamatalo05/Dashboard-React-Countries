@@ -1,9 +1,6 @@
-import { useState, useEffect } from "react";
-import { fetchCountryByUUID } from "../hooks/useCountries";
-import Loading from "./Loading";
+import CountryTime from "./CountryTime";
 
-export default function CountryDetail({ country, onBack }) {
-  // Recibe el objeto country completo directamente (ya normalizado)
+export default function CountryDetail({ country, onBack, isFavorite, onToggleFavorite }) {
   if (!country) return null;
 
   const nativeName = country.name.nativeName
@@ -16,40 +13,52 @@ export default function CountryDetail({ country, onBack }) {
     .map((c) => `${c.name} (${c.symbol ?? ""})`)
     .join(", ") || "N/A";
 
-  return (
-    <div className="detail-container">
-      <button className="back-btn" onClick={onBack}>← Volver</button>
+  const flagUrl = country.flags.svg || country.flags.png;
 
-      <div className="detail-content">
-        <div className="detail-flag">
-          {country.flags.svg || country.flags.png
-            ? <img src={country.flags.svg || country.flags.png} alt={`Bandera de ${country.name.common}`} />
-            : <div className="flag-placeholder-lg">🏳️</div>
+  return (
+    <div className="detail-page">
+      <div className="detail-top-bar">
+        <button className="back-btn" onClick={onBack}>← Volver</button>
+        <button
+          className={`fav-btn-detail ${isFavorite ? "fav-active" : ""}`}
+          onClick={onToggleFavorite}
+        >
+          {isFavorite ? "⭐ En favoritos" : "☆ Agregar a favoritos"}
+        </button>
+      </div>
+
+      <div className="detail-card">
+        <div className="detail-flag-section">
+          {flagUrl
+            ? <img className="detail-flag" src={flagUrl} alt={`Bandera de ${country.name.common}`} />
+            : <div className="detail-flag-placeholder">🏳️</div>
           }
         </div>
 
         <div className="detail-info">
-          <h1>{country.name.common}</h1>
+          <h1 className="detail-name">{country.name.common}</h1>
 
           <div className="detail-columns">
-            <div>
-              <p><span>Nombre oficial:</span> {country.name.official}</p>
-              <p><span>Nombre nativo:</span> {nativeName ?? "N/A"}</p>
-              <p><span>Población:</span> {country.population.toLocaleString()}</p>
-              <p><span>Región:</span> {country.region || "N/A"}</p>
-              <p><span>Subregión:</span> {country.subregion || "N/A"}</p>
-              <p><span>Capital:</span> {country.capital?.[0] ?? "N/A"}</p>
+            <div className="detail-col">
+              <p><span className="detail-label">Nombre oficial:</span> {country.name.official}</p>
+              <p><span className="detail-label">Nombre nativo:</span> {nativeName ?? "N/A"}</p>
+              <p><span className="detail-label">Población:</span> {country.population.toLocaleString()}</p>
+              <p><span className="detail-label">Región:</span> {country.region || "N/A"}</p>
+              <p><span className="detail-label">Subregión:</span> {country.subregion || "N/A"}</p>
+              <p><span className="detail-label">Capital:</span> {country.capital?.[0] ?? "N/A"}</p>
             </div>
-            <div>
-              <p><span>Dominio:</span> {country.tld?.join(", ") || "N/A"}</p>
-              <p><span>Monedas:</span> {currencies}</p>
-              <p><span>Idiomas:</span> {languages}</p>
+            <div className="detail-col">
+              <p><span className="detail-label">Dominio:</span> {country.tld?.join(", ") || "N/A"}</p>
+              <p><span className="detail-label">Monedas:</span> {currencies}</p>
+              <p><span className="detail-label">Idiomas:</span> {languages}</p>
             </div>
           </div>
 
+          <CountryTime timezones={country.timezones} />
+
           {country.borders?.length > 0 && (
-            <div className="borders-section">
-              <span>Países fronterizos:</span>
+            <div className="detail-borders" style={{ marginTop: '16px' }}>
+              <span className="detail-label">Países fronterizos:</span>
               <div className="borders-list">
                 {country.borders.map((code) => (
                   <span key={code} className="border-tag">{code}</span>

@@ -1,22 +1,13 @@
-const REGIONS = ["Africa", "Americas", "Asia", "Europe", "Oceania"];
+const REGIONS = ["Todas", "Africa", "Americas", "Asia", "Europe", "Oceania"];
 
-function RegionFilter({ value, onChange }) {
+export default function RegionFilter({ value, onChange }) {
   return (
     <div className="region-wrapper">
-      <select
-        className="region-select"
-        value={value}
-        onChange={(e) => onChange(e.target.value)}
-      >
-        <option value="">Todas las regiones</option>
-        {REGIONS.map((region) => (
-          <option key={region} value={region}>
-            {region}
-          </option>
+      <select className="region-select" value={value} onChange={(e) => onChange(e.target.value)}>
+        {REGIONS.map((r) => (
+          <option key={r} value={r}>{r === "Todas" ? "Todas las regiones" : r}</option>
         ))}
       </select>
     </div>
   );
 }
-
-export default RegionFilter;

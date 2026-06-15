@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-const BASE_URL = "http://localhost:3001/api";
+const BASE_URL = import.meta.env.PROD ? "/api/countries" : "http://localhost:3001/api";
 
 function normalize(c) {
   return {
@@ -28,6 +28,7 @@ function normalize(c) {
     }, {}) ?? {},
     borders: c.borders ?? [],
     tld: c.tlds ?? [],
+    timezones: c.timezones ?? [],
   };
 }
 
@@ -79,12 +80,4 @@ export function useCountries() {
   }, []);
 
   return { countries, loading, error, retry: fetchCountries };
-}
-
-export async function fetchCountryByUUID(uuid) {
-  const res = await fetch(`${BASE_URL}/${uuid}`);
-  if (!res.ok) throw new Error("País no encontrado");
-  const json = await res.json();
-  const raw = json?.data?.objects?.[0] ?? json;
-  return normalize(raw);
 }
