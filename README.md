@@ -48,24 +48,24 @@ npm run dev
 
 | Característica | Estado | Notas |
 |----------------|--------|-------|
-| Lista de Países | ✅ | Grilla de tarjetas con bandera, nombre, capital, población y región |
-| Funcionalidad de Búsqueda | ✅ | Búsqueda en tiempo real, insensible a mayúsculas |
-| Filtro por Región | ✅ | Selector desplegable con las 5 regiones |
-| Vista Detallada del País | ✅ | Nombre nativo, idiomas, monedas, fronteras, TLD |
-| Estados de Carga | ✅ | Spinner animado mientras se obtienen los datos |
-| Manejo de Errores | ✅ | Mensaje de error con botón de reintento |
+| Lista de Países |  | Grilla de tarjetas con bandera, nombre, capital, población y región |
+| Funcionalidad de Búsqueda |  | Búsqueda en tiempo real, insensible a mayúsculas |
+| Filtro por Región |  | Selector desplegable con las 5 regiones |
+| Vista Detallada del País |  | Nombre nativo, idiomas, monedas, fronteras, TLD |
+| Estados de Carga |  | Spinner animado mientras se obtienen los datos |
+| Manejo de Errores |  | Mensaje de error con botón de reintento |
 
 ### Características Extra
 
 | Característica | Estado | Notas |
 |----------------|--------|-------|
-| Diseño Responsivo | ✅ | Adaptado para móvil, tablet y escritorio |
-| Modo Oscuro/Claro | ✅ | Toggle con persistencia de preferencia |
-| Funcionalidad de Ordenamiento | ✅ | Por nombre, población o área |
-| Favoritos (localStorage) | ✅ | Sistema de favoritos con animación de celebración |
-| TypeScript | ❌ | |
-| Pruebas Unitarias | ✅ | Implementadas con Vitest |
-| Despliegue en Vivo | ✅ | https://dashboardcountries.vercel.app/ |
+| Diseño Responsivo |  | Adaptado para móvil, tablet y escritorio |
+| Modo Oscuro/Claro |  | Toggle con persistencia de preferencia |
+| Funcionalidad de Ordenamiento |  | Por nombre, población o área |
+| Favoritos (localStorage) |  | Sistema de favoritos con animación de celebración |
+| TypeScript |  | |
+| Pruebas Unitarias |  | Implementadas con Vitest |
+| Despliegue en Vivo |  | https://dashboardcountries.vercel.app/ |
 
 ---
 
@@ -158,10 +158,10 @@ api/
 
 | Área | Calificación (1-5) | Comentarios |
 |------|-------------------|-------------|
-| Funcionalidad | 5 | Todas las características requeridas y la mayoría de las extra implementadas |
-| Calidad del Código | 4 | Código organizado con separación de responsabilidades y custom hook |
-| UI/UX | 4 | Interfaz limpia, responsive y con soporte de modo oscuro |
-| Documentación | 4 | README completo con instrucciones, capturas y descripción de desafíos |
+| Funcionalidad |  | Todas las características requeridas y la mayoría de las extra implementadas |
+| Calidad del Código |  | Código organizado con separación de responsabilidades y custom hook |
+| UI/UX |  | Interfaz limpia, responsive y con soporte de modo oscuro |
+| Documentación |  | README completo con instrucciones, capturas y descripción de desafíos |
 
 ---
 
