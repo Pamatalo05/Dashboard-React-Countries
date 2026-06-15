@@ -15,7 +15,7 @@
 | Tipo de Enlace | URL |
 |----------------|-----|
 | Repositorio de GitHub | https://github.com/Pamatalo05/Dashboard-React-Countries |
-| Video de Loom | Pendiente de grabación |
+| Video de Loom | https://www.loom.com/share/3eae8cc85e8c4a37952236df42c45932 |
 | Demo en Vivo | https://dashboardcountries.vercel.app/ |
 
 ---
@@ -170,8 +170,3 @@ api/
 La integración con la API fue el punto más desafiante del proyecto y el que más tiempo consumió. La solución con Vercel API Routes resultó ser más limpia y mantenible que el proxy local, y es la que quedó implementada en producción.
 
 ---
-
-> **Recordatorio:** El video de Loom (3-5 minutos) cubrirá:
-> 1. Demostración de la aplicación funcionando
-> 2. Recorrido del código de `useCountries.jsx`
-> 3. Explicación del desafío con la API y cómo se resolvió
